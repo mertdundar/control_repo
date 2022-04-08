@@ -27,7 +27,7 @@ class minecraftmodule (
   }
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    content => epp('minectaftmodule/minecraft.service', {
+    content => epp('minecraftmodule/minecraft.service', {
       install_dir => $install_dir,
     })
   }
