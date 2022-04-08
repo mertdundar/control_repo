@@ -1,1 +1,3 @@
-class profile::mc {}
+class profile::mc {
+  include minecraftmodule
+}
