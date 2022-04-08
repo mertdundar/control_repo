@@ -1,4 +1,4 @@
-class minecraft {
+class minecraftmodule {
   file {'/opt/minecraft':
     ensure => directory,
   }
