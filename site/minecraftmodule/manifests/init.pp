@@ -6,7 +6,7 @@ class minecraftmodule {
     ensure => file,
     source => 'https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar',
   }
-  #package {'java-11-openjdk':
+  # package {'java-11-openjdk':
   #  ensure => present,
   #}
   java::download { 'jdk-18' :
