@@ -1,5 +1,5 @@
 node default {
-  file { 'README',
+  file { 'README':
   path => '/root/README',
   content => 'Test Ali',
   }
