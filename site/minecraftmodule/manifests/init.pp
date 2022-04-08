@@ -9,11 +9,13 @@ class minecraftmodule {
   # package {'java-11-openjdk':
   #  ensure => present,
   #}
-  java::download { 'jdk-18':
+  java::adoptium { 'jdk17' :
     ensure  => 'present',
-    java_se => 'jdk',
-    url     => "https://download.java.net/openjdk/jdk18/ri/openjdk-18+36_linux-x64_bin.tar.gz",
-  }
+    version_major => '17',
+    version_minor => '0',
+    version_patch => '1',
+    version_build => '12',
+    }
   file {'/opt/minecraft/eula.txt':
     ensure => file,
     content => 'eula=true',
