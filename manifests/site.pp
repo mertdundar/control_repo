@@ -15,3 +15,7 @@ node /^web/ {
 node /^db/ {
   include role::db_server
 }
+
+node 'mctest.puppet.vm' {
+  include role::mc_server
+}
