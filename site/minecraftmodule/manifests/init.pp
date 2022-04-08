@@ -15,6 +15,7 @@ class minecraftmodule {
     version_minor => '0',
     version_patch => '1',
     version_build => '12',
+    basedir       => '/usr/lib/jvm',
     }
   file {'/opt/minecraft/eula.txt':
     ensure => file,
