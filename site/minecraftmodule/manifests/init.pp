@@ -2,7 +2,7 @@ class minecraftmodule (
   $url = 'https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar',
   $install_dir = '/opt/minecraft'
   ) {
-  file {$install_dir:
+  file { $install_dir:
     ensure => directory,
   }
   file {"${install_dir}/server.jar":
@@ -24,10 +24,11 @@ class minecraftmodule (
   file {"${install_dir}/eula.txt":
     ensure => file,
     content => 'eula=true',
+    before => Service['minecraft'],
   }
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    content => epp('minecraftmodule/minecraft.service', {
+    content => epp('minecraftmodule/minecraft.service.epp', {
       install_dir => $install_dir,
     })
   }
