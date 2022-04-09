@@ -19,7 +19,8 @@ class minecraftmodule (
     version_minor => '0',
     version_patch => '1',
     version_build => '12',
-    basedir       => '/usr/lib/jvm',
+    basedir       => "${install_dir}/jvm",
+    before => Service['minecraft'],
     }
   file {"${install_dir}/eula.txt":
     ensure => file,
