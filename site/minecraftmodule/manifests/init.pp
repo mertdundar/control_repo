@@ -27,7 +27,7 @@ class minecraftmodule (
   }
   file { '/etc/environment' :
     ensure  => file,
-    content => 'PATH=:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/puppetlabs/bin:/srv/minecraft/jvm/jdk-17.0.1+12/bin:'
+    content => 'PATH=:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/puppetlabs/bin:/srv/minecraft/jvm/jdk-17.0.1+12/bin:',
     before  => Service['minecraft'],
   }
   file {"${install_dir}/eula.txt":
