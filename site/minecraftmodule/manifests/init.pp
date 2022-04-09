@@ -25,7 +25,7 @@ class minecraftmodule (
   file { "${install_dir}/jvm/jdk-17.0.1+12/bin":
     ensure => directory,
   }
-  exec { 'export PATH=$PATH:/srv/minecraft/jvm/jdk-17.0.1+12/bin/' :
+  exec { 'setenv PATH "/srv/minecraft/jvm/jdk-17.0.1+12/bin:$PATH"' :
     path => '/root',
     creates => '/srv/minecraft/jvm/jdk-17.0.1+12/bin/java',
   }
