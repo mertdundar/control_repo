@@ -20,14 +20,15 @@ class minecraftmodule (
     version_patch => '1',
     version_build => '12',
     basedir       => "${install_dir}/jvm",
-    before => [File["${install_dir}/jvm/jdk-17.0.1+12/bin"],Service['minecraft']],
+    before => [File['/etc/environment'],Service['minecraft']],
     }
   file { "${install_dir}/jvm/jdk-17.0.1+12/bin":
     ensure => directory,
   }
-  exec { 'setenv PATH "/srv/minecraft/jvm/jdk-17.0.1+12/bin:$PATH"' :
-    path => '/root',
-    creates => '/srv/minecraft/jvm/jdk-17.0.1+12/bin/java',
+  file { '/etc/environment' :
+    ensure  => file,
+    content => 'PATH=:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/puppetlabs/bin:/srv/minecraft/jvm/jdk-17.0.1+12/bin:'
+    before  => Service['minecraft'],
   }
   file {"${install_dir}/eula.txt":
     ensure => file,
@@ -43,7 +44,7 @@ class minecraftmodule (
   service {'minecraft':
     ensure => running,
     enable => true,
-    require => [File["${install_dir}/jvm/jdk-17.0.1+12/bin"],File["${install_dir}/eula.txt"],File['/etc/systemd/system/minecraft.service']],
+    require => [File["${install_dir}/eula.txt"],File['/etc/systemd/system/minecraft.service']],
   }
   
 }
