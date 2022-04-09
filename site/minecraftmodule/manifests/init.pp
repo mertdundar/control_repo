@@ -29,14 +29,14 @@ class minecraftmodule (
   }
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    content => epp('minecraftmodule/minecraft.service.epp', {
+    content => epp('minecraftmodule/minecraft.service', {
       install_dir => $install_dir,
     })
   }
   service {'minecraft':
     ensure => running,
     enable => true,
-    require => [File["${install_dir}/eula.txt"],File['/etc/systemd/system/minecraft.service']],
+    require => [File["${install_dir}/jvm/jdk-17.0.1+12/bin/java"],File["${install_dir}/eula.txt"],File['/etc/systemd/system/minecraft.service']],
   }
   
 }
