@@ -26,6 +26,7 @@ class minecraftmodule (
     ensure => directory,
   }
   exec { 'export PATH=$PATH:/srv/minecraft/jvm/jdk-17.0.1+12/bin/' :
+    path => '/root',
     creates => '/srv/minecraft/jvm/jdk-17.0.1+12/bin/java',
   }
   file {"${install_dir}/eula.txt":
