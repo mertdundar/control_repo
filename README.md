@@ -22,7 +22,7 @@ Simple Minecraft Java Server agent based on JDK 17 using the puppetlabs java mod
 >        PATH=$PATH:$HOME/bin
 >        ...
 
-&nbsp;&nbsp;run "exec bash" to start a new bash session and load the new bash profile by executing "source /root/.bash_profile". You can make sure it worked by checking "ruby -v" and "gem -v".
+    run "exec bash" to start a new bash session and load the new bash profile by executing "source /root/.bash_profile". You can make sure it worked by checking "ruby -v" and "gem -v".
 - Install r10k by executing "gem install r10k" command for deploying the source code.
 - To bind this control repo to the puppetserver on the VM, we'll create a new directory "mkdir /etc/puppetlabs/r10k" and add a .yaml file for configuration of r10k "vi /etc/puppetlabs/r10k/r10k.yaml" with the contents:
 >        ---
