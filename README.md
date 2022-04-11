@@ -9,11 +9,11 @@ Simple Minecraft Java Server agent based on JDK 17 using the puppetlabs java mod
 - Configure the puppetserver service's resource allocation by altering the /etc/sysconfig/puppetserver file to set the desired RAM usage etc.
 - Start and enable the puppetserver service "systemctl start puppetserver" and "systemctl enable puppetserver"
 - Configure the puppetserver's agent by adding an agent section underneath the master section inside the "/etc/puppetlabs/puppet/puppet.conf" file and setting the server to your machine's hostname. 'master.puppet.vm' in my Vagrant file's case:
-> [server]
-> ...
->
-> [agent]
-> server = master.puppet.vm
+>        [server]
+>        ...
+>        
+>        [agent]
+>        server = master.puppet.vm
 - Install ruby and gem, this can be done by either installing them using the yum and repos or simply adding the already installed puppetserver's binary path to machine's environment to use the built-in ruby and gem from the puppetserver installation. To achieve the second approach, you can add "/opt/puppetlabs/puppet/bin" to the PATH by inserting a second PATH entry to the bash profile file. Change the content of the .bash_profile by executing "vi /root/.bash_profile" and add the following:
 > ...
 > PATH=$PATH:/opt/puppetlabs/puppet/bin \#THIS ONE WILL BE ADDED
