@@ -17,10 +17,10 @@ Simple Minecraft Java Server agent based on JDK 17 using the puppetlabs java mod
 >        [agent]
 >        server = master.puppet.vm
 - Install ruby and gem, this can be done by either installing them using the yum and repos or simply adding the already installed puppetserver's binary path to machine's environment to use the built-in ruby and gem from the puppetserver installation. To achieve the second approach, you can add "/opt/puppetlabs/puppet/bin" to the PATH by inserting a second PATH entry to the bash profile file. Change the content of the .bash_profile by executing "vi /root/.bash_profile" and add the following:
->        ...
->        PATH=$PATH:/opt/puppetlabs/puppet/bin #THIS ONE WILL BE ADDED
->        PATH=$PATH:$HOME/bin
->        ...
+ >        ...
+ >        PATH=$PATH:/opt/puppetlabs/puppet/bin #THIS ONE WILL BE ADDED
+ >        PATH=$PATH:$HOME/bin
+ >        ...
 run "exec bash" to start a new bash session and load the new bash profile by executing "source /root/.bash_profile". You can make sure it worked by checking "ruby -v" and "gem -v".
 - Install r10k by executing "gem install r10k" command for deploying the source code.
 - To bind this control repo to the puppetserver on the VM, we'll create a new directory "mkdir /etc/puppetlabs/r10k" and add a .yaml file for configuration of r10k "vi /etc/puppetlabs/r10k/r10k.yaml" with the contents:
