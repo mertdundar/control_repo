@@ -2,8 +2,10 @@
 
 Simple Minecraft Java Server agent based on JDK 17 using the puppetlabs java module and Adoptium Temurin (java::adoptium) and a master server to handle web, db, and minecraft server(s).
 
-[Installation]:
-- Using Vagrant and Oracle VM VirtualBox, configure the vagrant file and start up the VM.
+
+# [Installation]:
+
+- Using Vagrant and Oracle VM VirtualBox, configure the vagrant file and start up the VM. (Vagrant file can be found at https://github.com/mertdundar/control_repo/blob/production/VM/Vagrantfile) CentOS 7 is being used.
 - Add puppetserver repo using "rpm -Uvh https://yum.puppet.com/puppet7-release-el-7.noarch.rpm"
 - Install puppetserver and git for version control "yum install -y puppetserver git"
 - Configure the puppetserver service's resource allocation by altering the /etc/sysconfig/puppetserver file to set the desired RAM usage etc.
